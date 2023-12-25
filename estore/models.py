@@ -21,12 +21,12 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.name} |{self.image} | {self.description} | {self.category} | {self.price}"
+        return f"{self.product_name} |{self.image} | {self.description} | {self.category} | {self.price}"
 
 
 class Order(models.Model):
     time = models.DateField(auto_now_add=True)
-    quantity = models.ImageField()
+    quantity = models.IntegerField()
     total_amount = models.DecimalField(max_digits=100, decimal_places=3,default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product_name = models.ForeignKey(Product, on_delete=models.CASCADE)
